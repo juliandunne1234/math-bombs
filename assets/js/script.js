@@ -11,13 +11,20 @@ document.addEventListener('DOMContentLoaded', function() {
  * the 30 second countdown timer begins
  */
 function startCountdown() {
+    
     let time = 30;
-    let remainingTime = time;
-    setInterval(countingDown, 1000);
+    let interval = setInterval(countingDown, 1000);
 
     function countingDown() {
         time--;
-        document.getElementById('counter').innerHTML = `00:${time}`;
+        if (time >= 10) {
+            document.getElementById('counter').innerHTML = `00:${time}`;
+        } else if (time >= 1) {
+            document.getElementById('counter').innerHTML = `00:0${time}`;
+        } else {
+            clearInterval(interval);
+            document.getElementById('counter').innerHTML = `00:00`;
+        } 
     }
 }
 
