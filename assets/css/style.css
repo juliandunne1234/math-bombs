@@ -101,3 +101,38 @@ h1 {
     color: --secondary-text;
     background-color: var(--primary-text);
 }
+
+#math-bomb-intro h2 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.math-calc-values {
+    display: flex;
+    justify-content: center;   
+}
+
+.empty {
+    height: 75px;
+    width: 75px;
+    margin: 15px;
+    background: var(--primary-text);
+}
+
+#math-calc-answer {
+    display: flex;
+    justify-content: center;
+
+}
+
+#equal-sign {
+    font-size: 12rem;
+    line-height: 100px;
+}
+
+#answer-box {
+    height: 75px;
+    width: 200px;
+    margin: 15px;
+    background: var(--primary-text);
+}
