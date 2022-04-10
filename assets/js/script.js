@@ -39,24 +39,74 @@ function startMath() {
     document.getElementById('math-bomb-intro').innerHTML = `
         <h2>Create the calculation...</h2>
         <div class="math-calc-values">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-        <div class="math-calc-values">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
+            <div id="box1" class="empty"></div>
+            <div id="box2" class="empty"></div>
+            <div id="box3" class="empty "></div>
+            <div id="box4" class="empty"></div>
+            <div id="box5" class="empty"></div>
+            <div id="box6" class="empty"></div>
+            <div id="box7" class="empty"></div>
         </div>
         <div id="math-calc-answer">
             <div id="equal-sign">=</div>
             <div id="answer-box"></div>
         </div>
     `;
-
+    
+    let calculatedAnswer = finalCalculation();
 }
 
+/**
+ * Function that calculates the number to be formulated
+ * as part of the maths bomb game
+ */
+function finalCalculation() {
+    let randomNumbers = randomNumberGenerator();
+    let randomIndex = randomIndexGenerator();
+
+    console.log(randomNumbers);
+    console.log(randomIndex);
+}
+
+/**
+ * 
+ * Create a list of random numbers
+ * the first number is in range 1 - 100
+ * remaining numbers are in range 1 - 10
+ */
+function randomNumberGenerator() {
+    let randomNumbers = [];
+    for (let i = 0;  i < 7; i++) {
+        if (i === 0) {
+            let randomNumber = Math.floor(Math.random() * 100) + 1;
+            document.getElementsByClassName('empty')[i].innerHTML = randomNumber;
+            randomNumbers.push(randomNumber);  
+        } else {
+            let randomNumber = Math.floor(Math.random() * 10) + 1;
+            document.getElementsByClassName('empty')[i].innerHTML = randomNumber;
+            randomNumbers.push(randomNumber); 
+        } 
+    }
+    return randomNumbers;
+}
+
+/**
+ * Create an index list and sort index elements randomly
+ * drop the last two elements in the randomly sorted list
+ */
+function randomIndexGenerator() {
+    let randomSortedIndex = randomSortIndex();
+    return randomSortedIndex.splice(0, 5);
+}
+
+function randomSortIndex() {
+    let indexToSort = [0, 1, 2, 3, 4, 5, 6];
+    for (let i = 0; i < indexToSort.length; i++) {
+        j = Math.floor(Math.random() * i)
+        k = indexToSort[i]
+        indexToSort[i] = indexToSort[j]
+        indexToSort[j] = k
+    }
+    let randomSortedIndex = indexToSort;
+    return randomSortedIndex;
+}

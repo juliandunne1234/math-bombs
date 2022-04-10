@@ -114,7 +114,7 @@ h1 {
 
 .empty {
     height: 75px;
-    width: 75px;
+    width: 150px;
     margin: 15px;
     background: var(--primary-text);
 }
@@ -122,7 +122,6 @@ h1 {
 #math-calc-answer {
     display: flex;
     justify-content: center;
-
 }
 
 #equal-sign {
@@ -130,9 +129,20 @@ h1 {
     line-height: 100px;
 }
 
+#box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8, #box9, #box10 {
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 4rem;
+    text-align: center;
+    font-weight: bold;
+}
+
 #answer-box {
     height: 75px;
-    width: 200px;
+    width: 250px;
     margin: 15px;
     background: var(--primary-text);
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 4rem;
+    text-align: center;
+    font-weight: bold;
 }
