@@ -64,8 +64,13 @@ function finalCalculation() {
     let randomNumbers = randomNumberGenerator();
     let randomIndex = randomIndexGenerator();
 
+    let calculatedValue = randomNumbers[(randomIndex[0])] + randomNumbers[(randomIndex[1])] + randomNumbers[(randomIndex[2])] * randomNumbers[(randomIndex[3])];
+
+    document.getElementById('answer-box').innerHTML = calculatedValue;
+
     console.log(randomNumbers);
     console.log(randomIndex);
+    console.log(calculatedValue);
 }
 
 /**
