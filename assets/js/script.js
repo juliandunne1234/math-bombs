@@ -15,8 +15,6 @@ function startCountdown() {
     let time = 30;
     let interval = setInterval(countingDown, 1000);
 
-    startMath();
-
     function countingDown() {
         time--;
         if (time >= 10) {
@@ -28,6 +26,10 @@ function startCountdown() {
             document.getElementById('counter').innerHTML = `00:00`;
         } 
     }
+
+    let generateMathValues = startMath();
+    let calculatedAnswer = finalCalculation();
+    let submittedAnswer = submittedCalculation();
 }
 
 /**
@@ -37,7 +39,10 @@ function startCountdown() {
  */
 function startMath() {
     document.getElementById('math-bomb-intro').innerHTML = `
-        <h2>Create the calculation...</h2>
+        <h2>Create the calculation...Any number can only be used once</h2>
+        <div id="math-calc-answer">
+            <div id="calculated-number"></div>
+        </div>
         <div class="math-calc-values">
             <div id="box1" class="empty"></div>
             <div id="box2" class="empty"></div>
@@ -49,15 +54,17 @@ function startMath() {
         </div>
         <div id="math-calc-answer">
             <div id="equal-sign">=</div>
-            <div id="answer-box"></div>
+            <input type="text" id="answer-box">
         </div>
     `;
-    
-    let calculatedAnswer = finalCalculation();
+
+    document.getElementById('start-box').innerHTML = `
+        <button id="submit-calc">SUBMIT ANSWER</button>
+    `;
 }
 
 /**
- * Function that calculates the number to be formulated
+ * Function that calculates the answer
  * as part of the maths bomb game
  */
 function finalCalculation() {
@@ -66,16 +73,13 @@ function finalCalculation() {
 
     let calculatedValue = randomNumbers[(randomIndex[0])] + randomNumbers[(randomIndex[1])] + randomNumbers[(randomIndex[2])] * randomNumbers[(randomIndex[3])];
 
-    document.getElementById('answer-box').innerHTML = calculatedValue;
-
-    console.log(randomNumbers);
-    console.log(randomIndex);
-    console.log(calculatedValue);
+    document.getElementById('calculated-number').innerHTML = calculatedValue;
+    return calculatedValue;
 }
 
 /**
  * 
- * Create a list of random numbers
+ * Generate random numbers
  * the first number is in range 1 - 100
  * remaining numbers are in range 1 - 10
  */
@@ -96,8 +100,8 @@ function randomNumberGenerator() {
 }
 
 /**
- * Create an index list and sort index elements randomly
- * drop the last two elements in the randomly sorted list
+ * Functions to randomly sort array of index elements 
+ * drop last two elements in the randomly sorted array 
  */
 function randomIndexGenerator() {
     let randomSortedIndex = randomSortIndex();
@@ -114,4 +118,20 @@ function randomSortIndex() {
     }
     let randomSortedIndex = indexToSort;
     return randomSortedIndex;
+}
+
+/**
+ * Functions that calculate the equation 
+ * entered in the answer-box and submitted 
+ * via the submit button
+ */
+function submittedCalculation() {
+    let submitButton = document.getElementById('submit-calc');
+    submitButton.addEventListener('click', submitFinalCalc);
+    document.getElementById('answer-box').focus();
+}
+
+function submitFinalCalc() {
+    let submitFinalCalc = eval(document.getElementById('answer-box').value);
+    console.log(submitFinalCalc);
 }
