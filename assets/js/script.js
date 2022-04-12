@@ -27,9 +27,12 @@ function startCountdown() {
         } 
     }
 
-    let generateMathValues = startMath();
+    startMath();
+
     let calculatedAnswer = finalCalculation();
-    let submittedAnswer = submittedCalculation();
+    
+    let submitButton = document.getElementById('submit-calc');
+    submitButton.addEventListener('click', submitFinalCalc);
 }
 
 /**
@@ -125,13 +128,12 @@ function randomSortIndex() {
  * entered in the answer-box and submitted 
  * via the submit button
  */
-function submittedCalculation() {
-    let submitButton = document.getElementById('submit-calc');
-    submitButton.addEventListener('click', submitFinalCalc);
-    document.getElementById('answer-box').focus();
-}
-
 function submitFinalCalc() {
     let submitFinalCalc = eval(document.getElementById('answer-box').value);
-    console.log(submitFinalCalc);
+    
+    let calculatedAnswer = document.getElementById('calculated-number').innerHTML;
+
+    if (parseInt(calculatedAnswer) === parseInt(submitFinalCalc)) {
+        alert('correct');
+    }
 }
