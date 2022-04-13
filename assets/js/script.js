@@ -129,11 +129,46 @@ function randomSortIndex() {
  * via the submit button
  */
 function submitFinalCalc() {
-    let submitFinalCalc = eval(document.getElementById('answer-box').value);
-    
-    let calculatedAnswer = document.getElementById('calculated-number').innerHTML;
+    let submitFinalValue = eval(document.getElementById('answer-box').value);
+    let calcValues = calculatedValues();
+}
 
-    if (parseInt(calculatedAnswer) === parseInt(submitFinalCalc)) {
-        alert('correct');
+function calculatedValues() {
+    let calcElements = document.getElementById('answer-box').value;
+    let numStrArray = calcElements.replace(/[^0-9]/g, ", ").split(',');
+    let numIntArray = strToInt(numStrArray);
+    let randomIntArray = emptyClass();
+
+    console.log(numIntArray);
+    console.log(randomIntArray);
+}
+
+/** 
+* Function to convert array of strings to array of numbers 
+*/
+function strToInt(numStrArray) {
+    let numIntArray = [];
+    for (let i = 0; i < numStrArray.length; i++) {
+                       
+        if (parseInt(numStrArray[i])) {
+            numIntArray.push(parseInt(numStrArray[i]));
+        }
+    } 
+    return numIntArray;
+}
+
+/**
+ * Function that create list of integers
+ * from empty class html values
+ */
+function emptyClass() {
+
+    let emptyValues = [];
+    let emptyItems = document.getElementsByClassName('empty');
+    
+    for (let i = 0; i < emptyItems.length; i++) {
+        emptyValues.push(parseInt(emptyItems[i].innerHTML));
     }
+
+    return emptyValues
 }
