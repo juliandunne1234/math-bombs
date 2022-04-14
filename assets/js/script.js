@@ -138,9 +138,7 @@ function calculatedValues() {
     let numStrArray = calcElements.replace(/[^0-9]/g, ", ").split(',');
     let numIntArray = strToInt(numStrArray);
     let randomIntArray = emptyClass();
-
-    console.log(numIntArray);
-    console.log(randomIntArray);
+    arrayComparison(numIntArray, randomIntArray);
 }
 
 /** 
@@ -169,6 +167,22 @@ function emptyClass() {
     for (let i = 0; i < emptyItems.length; i++) {
         emptyValues.push(parseInt(emptyItems[i].innerHTML));
     }
-
     return emptyValues
+}
+
+function arrayComparison(numIntArray, randomIntArray) {
+    
+    for(let i = 0; i < randomIntArray.length; i++){
+        let val = randomIntArray[i]
+        let foundIndex = numIntArray.indexOf(val)
+        if(foundIndex != -1){
+            numIntArray.splice(foundIndex, 1)
+        }
+    }
+    if (numIntArray.length > 0) {
+        alert("Only use elements once and do not use elements not provided ");
+    }
+    if (numIntArray.length < 1) {
+        alert("Played correctly");
+    }
 }
