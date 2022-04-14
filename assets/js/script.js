@@ -131,6 +131,13 @@ function randomSortIndex() {
 function submitFinalCalc() {
     let submitFinalValue = eval(document.getElementById('answer-box').value);
     let calcValues = calculatedValues();
+    
+    let calculatedNumber = parseInt(document.getElementById('calculated-number').innerHTML);
+    if (submitFinalValue === calculatedNumber) {
+        alert("correct");
+    } else {
+        alert("Guess again");
+    }
 }
 
 function calculatedValues() {
