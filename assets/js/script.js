@@ -25,11 +25,6 @@ var mathCount = 0;
     
     let submitButton = document.getElementById('submit-calc');
     submitButton.addEventListener('click', submitFinalCalc);
-
-    // if (mathCount === 3) {
-    //     clearInterval(interval);
-    //     gameComplete();
-    // }
 }
 
 function countingDown() {
@@ -143,15 +138,19 @@ function submitFinalCalc() {
     let calculatedNumber = parseInt(document.getElementById('calculated-number').innerHTML);
     if (submitFinalValue === calculatedNumber) {
         alert("correct");
-        startMath();
-        finalCalculation();
         mathCount++;
-        console.log(mathCount);
-        document.getElementById('answer-box').innerHTML = "";
-        let submitButton = document.getElementById('submit-calc');
-        submitButton.addEventListener('click', submitFinalCalc);
-        // clearInterval(interval);
-        // gameComplete()
+        if (mathCount < 3) {
+            startMath();
+            finalCalculation();
+            document.getElementById('answer-box').innerHTML = "";
+            let submitButton = document.getElementById('submit-calc');
+            submitButton.addEventListener('click', submitFinalCalc);
+        } else {
+            alert("You have defused the bomb!!");
+            clearInterval(interval);
+            gameComplete();
+        }
+        
     } else {
         alert("Quick...get out of here!");
         clearInterval(interval);
