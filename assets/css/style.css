@@ -157,3 +157,11 @@ h1 {
     text-align: center;
     font-weight: bold;
 }
+
+#game-over {
+    color: #fff;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}

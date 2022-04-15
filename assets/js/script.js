@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function startCountdown() {
     
-    let time = 30;
+    let time = 10;
     let interval = setInterval(countingDown, 1000);
 
     function countingDown() {
@@ -24,6 +24,7 @@ function startCountdown() {
         } else {
             clearInterval(interval);
             document.getElementById('counter').innerHTML = `00:00`;
+            bombExplodes();
         } 
     }
 
@@ -192,4 +193,19 @@ function arrayComparison(numIntArray, randomIntArray) {
     if (numIntArray.length < 1) {
         alert("Played correctly");
     }
+}
+
+/**
+ * User has run out of time
+ * without finishing the game
+ */
+function bombExplodes() {
+    document.getElementById('container').innerHTML = `
+        <div id="game-over">
+            <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay width="100%" height="100%">
+                <h2>GAME....OVER</h2>
+            </video>
+        </div>
+    </div> 
+    `;
 }
