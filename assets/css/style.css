@@ -158,7 +158,7 @@ h1 {
     font-weight: bold;
 }
 
-#game-over {
+#game-over, #game-complete {
     color: #fff;
     margin: 0 auto;
     width: 100%;

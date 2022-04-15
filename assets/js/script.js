@@ -7,33 +7,41 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 /**
+ * Global time and interval variables
+ */
+var time = 59;
+var interval;
+var mathCount = 0;
+
+/**
  * When the start button is selected
  * the 30 second countdown timer begins
  */
-function startCountdown() {
-    
-    let time = 10;
-    let interval = setInterval(countingDown, 1000);
-
-    function countingDown() {
-        time--;
-        if (time >= 10) {
-            document.getElementById('counter').innerHTML = `00:${time}`;
-        } else if (time >= 1) {
-            document.getElementById('counter').innerHTML = `00:0${time}`;
-        } else {
-            clearInterval(interval);
-            document.getElementById('counter').innerHTML = `00:00`;
-            bombExplodes();
-        } 
-    }
-
+ function startCountdown() {
+    interval = setInterval(countingDown, 1000);
+    countingDown()
     startMath();
-
-    let calculatedAnswer = finalCalculation();
+    finalCalculation();
     
     let submitButton = document.getElementById('submit-calc');
     submitButton.addEventListener('click', submitFinalCalc);
+
+    // if (mathCount === 3) {
+    //     clearInterval(interval);
+    //     gameComplete();
+    // }
+}
+
+function countingDown() {
+    time--;
+    if (time >= 10) {
+        document.getElementById('counter').innerHTML = `00:${time}`;
+    } else if (time >= 1) {
+        document.getElementById('counter').innerHTML = `00:0${time}`;
+    } else {
+        clearInterval(interval);
+        bombExplodes();
+    } 
 }
 
 /**
@@ -82,7 +90,6 @@ function finalCalculation() {
 }
 
 /**
- * 
  * Generate random numbers
  * the first number is in range 1 - 100
  * remaining numbers are in range 1 - 10
@@ -131,13 +138,24 @@ function randomSortIndex() {
  */
 function submitFinalCalc() {
     let submitFinalValue = eval(document.getElementById('answer-box').value);
-    let calcValues = calculatedValues();
+    calculatedValues();
     
     let calculatedNumber = parseInt(document.getElementById('calculated-number').innerHTML);
     if (submitFinalValue === calculatedNumber) {
         alert("correct");
+        startMath();
+        finalCalculation();
+        mathCount++;
+        console.log(mathCount);
+        document.getElementById('answer-box').innerHTML = "";
+        let submitButton = document.getElementById('submit-calc');
+        submitButton.addEventListener('click', submitFinalCalc);
+        // clearInterval(interval);
+        // gameComplete()
     } else {
-        alert("Guess again");
+        alert("Quick...get out of here!");
+        clearInterval(interval);
+        bombExplodes();
     }
 }
 
@@ -188,10 +206,9 @@ function arrayComparison(numIntArray, randomIntArray) {
         }
     }
     if (numIntArray.length > 0) {
-        alert("Only use elements once and do not use elements not provided ");
-    }
-    if (numIntArray.length < 1) {
-        alert("Played correctly");
+        alert("Elements provided can only be used one...you are unlucky this time");
+        clearInterval(interval);
+        bombExplodes();
     }
 }
 
@@ -200,9 +217,22 @@ function arrayComparison(numIntArray, randomIntArray) {
  * without finishing the game
  */
 function bombExplodes() {
+    
     document.getElementById('container').innerHTML = `
         <div id="game-over">
             <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay width="100%" height="100%">
+                <h2>GAME....OVER</h2>
+            </video>
+        </div>
+    </div> 
+    `;
+}
+
+function gameComplete() {
+    
+    document.getElementById('container').innerHTML = `
+        <div id="game-complete">
+            <video src="assets/videos/game-complete-placeholder.mp4" controls="" autoplay width="100%" height="100%">
                 <h2>GAME....OVER</h2>
             </video>
         </div>
