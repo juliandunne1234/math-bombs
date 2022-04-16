@@ -102,6 +102,57 @@ h1 {
     background-color: var(--primary-text);
 }
 
+#progress-container {
+    color: var(--primary-text);
+}
+
+#progress {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 50px;
+    margin-left: 15%;
+    width: 70%;
+}
+
+#progress::before {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 100%;
+}
+
+#progress-bar {
+    background-color: rgb(188, 7, 7);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    transition: .8s ease;
+}
+
+.square {
+    z-index: 1;
+    background-color: #fff;
+    color: rgb(188, 7, 7);
+    font-weight: 900;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #fff;
+    border-radius: 3px;
+}
+
+.square.active {
+    border-color: rgb(188, 7, 7);
+}
+
 #math-bomb-intro h2 {
     font-size: 2.5rem;
     text-align: center;

@@ -66,7 +66,7 @@ function startMath() {
     `;
 
     document.getElementById('start-box').innerHTML = `
-        <button id="submit-calc">SUBMIT ANSWER</button>
+        <button id="submit-calc">SUBMIT</button>
     `;
 }
 
