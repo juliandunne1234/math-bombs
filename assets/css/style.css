@@ -42,7 +42,7 @@ h1 {
 #math-bomb-intro p {
     text-align: center;
     width: 80%;
-    margin: 0 auto;
+    margin: 30px auto;
     font-size: 1.5rem;
     letter-spacing: 2px;
     line-height: 32px;
@@ -209,10 +209,12 @@ h1 {
     font-weight: bold;
 }
 
-#game-over, #game-complete {
-    color: #fff;
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
+#video-game-over, #video-game-complete {
+    width: 100vw;
+    height: 80vh;
+    object-fit: cover;
+}
+
+#game-over-message {
+    margin: 20% 10%;
 }

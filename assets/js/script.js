@@ -62,9 +62,11 @@ function startMath() {
         </div>
         <div id="math-calc-answer">
             <div id="equal-sign">=</div>
-            <input type="text" id="answer-box">
+            <input type="text" id="answer-box" placeholder="4 * ( 8 - 9 )">
         </div>
     `;
+
+    document.getElementById('answer-box').focus();
 
     document.getElementById('start-box').innerHTML = `
         <button id="submit-calc">SUBMIT</button>
@@ -229,25 +231,15 @@ function updateProgressBar() {
  * without finishing the game
  */
 function bombExplodes() {
-    
     document.getElementById('container').innerHTML = `
-        <div id="game-over">
-            <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay width="100%" height="100%">
-                <h2>GAME....OVER</h2>
-            </video>
-        </div>
-    </div> 
+        <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay id="video-game-over">
+            <h2>GAME....OVER</h2>
+        </video>
     `;
 }
 
 function gameComplete() {
-    
-    document.getElementById('container').innerHTML = `
-        <div id="game-complete">
-            <video src="assets/videos/game-complete-placeholder.mp4" controls="" autoplay width="100%" height="100%">
-                <h2>GAME....OVER</h2>
-            </video>
-        </div>
-    </div> 
+    document.getElementById('math-bomb-intro').innerHTML = `
+        <h2 id="game-over-message">You have finished the game...You must be some kind of Math genius!!!</h2>
     `;
 }
