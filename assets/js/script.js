@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 /**
- * Global time and interval variables
+ * Global variables used as part of the project
  */
 var time = 59;
 var interval;
 var mathCount = 0;
+var currentProgress = 1;
 
 /**
  * When the start button is selected
@@ -137,8 +138,9 @@ function submitFinalCalc() {
     
     let calculatedNumber = parseInt(document.getElementById('calculated-number').innerHTML);
     if (submitFinalValue === calculatedNumber) {
-        alert("correct");
         mathCount++;
+        currentProgress++;
+        updateProgressBar();
         if (mathCount < 3) {
             startMath();
             finalCalculation();
@@ -146,7 +148,6 @@ function submitFinalCalc() {
             let submitButton = document.getElementById('submit-calc');
             submitButton.addEventListener('click', submitFinalCalc);
         } else {
-            alert("You have defused the bomb!!");
             clearInterval(interval);
             gameComplete();
         }
@@ -209,6 +210,18 @@ function arrayComparison(numIntArray, randomIntArray) {
         clearInterval(interval);
         bombExplodes();
     }
+}
+
+/**
+ * Progress bar to show current progress
+ */
+function updateProgressBar() {
+    let progressSquares = document.querySelectorAll('.square');
+    progressSquares.forEach((square, idx) => {
+        if (idx < currentProgress) {
+            square.classList.add('active');
+        }
+    })
 }
 
 /**
