@@ -258,7 +258,7 @@ h1 {
     }
     
     #container {
-        height: 80%;
+        height: 100%;
         flex-direction: column;
     }
 
@@ -284,6 +284,28 @@ h1 {
 
     #progress {
         margin-top: 50px;
+        margin-bottom: 150px;
+    }
+}
+
+/* small screens size from 600px wide and down */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    #math-bomb-intro {
+        margin: 0;
+        padding-top: 2rem;
+    }
+
+    #timer-box {
+        margin-top: 50px;
         margin-bottom: 50px;
+    }
+
+    #progress {
+        margin-top: 50px;
+        margin-bottom: 90px;
     }
 }
