@@ -317,34 +317,65 @@ h1 {
     }
     
     #math-bomb-intro h2 {
-        padding-left: 30px;
         font-size: 1.25rem;
     }
     
     .empty {
-        height: 40px;
-        width: 50px;
-        margin: 5px;
+        height: 30px;
+        width: 30px;
+        margin: 3px;
     }
     
     #equal-sign {
-        font-size: 6rem;
-        line-height: 75px;
+        font-size: 4.5rem;
+        line-height: 50px;
     }
     
     #box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8, #box9, #box10 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     #calculated-number {
-        height: 50px;
-        width: 150px;
-        font-size: 2rem;
+        height: 30px;
+        width: 125px;
+        font-size: 1.5rem;
     }
     
     #answer-box {
-        height: 50px;
-        width: 150px;
-        font-size: 2rem;
+        height: 30px;
+        width: 125px;
+        font-size: 1.5rem;
+    }
+
+    #timer-box {
+        font-size: 1.5rem;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    #counter {
+        width: 30%;
+        border: 5px solid #fff;
+        padding: 5px 15px;
+        letter-spacing: 3px;
+    }
+    
+    #start-bomb-timer, #submit-calc {
+        width: 40%;
+        border: 5px solid #fff;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-size: 1rem;
+        letter-spacing: 3px;
+        font-weight: 800;
+    }
+    
+    #start-bomb-timer:hover, #submit-calc:hover {
+        border: 5px solid rgb(188, 7, 7);
+    }
+
+    #progress {
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 }
