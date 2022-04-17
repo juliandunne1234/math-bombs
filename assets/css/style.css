@@ -25,8 +25,7 @@ h1 {
 }
 
 #container {
-    margin-top: 5%;
-    height: 90%;
+    height: 100vh;
     display: flex;
     background-color: rgba(0, 0, 0, 0.9);
 }
@@ -46,7 +45,7 @@ h1 {
     margin: 30px auto;
     font-size: 2rem;
     letter-spacing: 2px;
-    line-height: 48px;
+    line-height: 40px;
 }
 
 #loud {
@@ -211,7 +210,7 @@ h1 {
 
 #video-game-over, #video-game-complete {
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
     object-fit: cover;
 }
 
@@ -249,5 +248,42 @@ h1 {
     
     #start-bomb-timer:hover, #submit-calc:hover {
         border: 8px solid rgb(188, 7, 7);
+    }
+}
+
+/* medium screens size from 900px wide and down */
+@media screen and (max-width: 900px) {
+    body {
+        height: 100%;
+    }
+    
+    #container {
+        height: 80%;
+        flex-direction: column;
+    }
+
+    h1 {
+        margin-top: 3px;
+        margin-bottom: 5px;
+    }
+    
+    #math-bomb-intro {
+        margin: 0;
+        padding-bottom: 2rem;
+        width: 100vw;
+    }
+
+    #countdown-container {
+        width: 100vw;
+    }
+
+    #timer-box {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    #progress {
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 }
