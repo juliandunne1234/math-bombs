@@ -309,3 +309,42 @@ h1 {
         margin-bottom: 90px;
     }
 }
+
+/* smallest screen size from 400px wide and down */
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    #math-bomb-intro h2 {
+        padding-left: 30px;
+        font-size: 1.25rem;
+    }
+    
+    .empty {
+        height: 40px;
+        width: 50px;
+        margin: 5px;
+    }
+    
+    #equal-sign {
+        font-size: 6rem;
+        line-height: 75px;
+    }
+    
+    #box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8, #box9, #box10 {
+        font-size: 2rem;
+    }
+    
+    #calculated-number {
+        height: 50px;
+        width: 150px;
+        font-size: 2rem;
+    }
+    
+    #answer-box {
+        height: 50px;
+        width: 150px;
+        font-size: 2rem;
+    }
+}
