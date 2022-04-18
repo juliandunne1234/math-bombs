@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let startTimer = document.getElementById('start-bomb-timer');
     startTimer.addEventListener('click', startCountdown);
-})
+});
 
 /**
  * Global variables used as part of the project
@@ -20,7 +20,7 @@ var currentProgress = 1;
  */
  function startCountdown() {
     interval = setInterval(countingDown, 1000);
-    countingDown()
+    countingDown();
     startMath();
     finalCalculation();
     
@@ -123,10 +123,10 @@ function randomIndexGenerator() {
 function randomSortIndex() {
     let indexToSort = [0, 1, 2, 3, 4, 5, 6];
     for (let i = 0; i < indexToSort.length; i++) {
-        j = Math.floor(Math.random() * i)
-        k = indexToSort[i]
-        indexToSort[i] = indexToSort[j]
-        indexToSort[j] = k
+        let j = Math.floor(Math.random() * i);
+        let k = indexToSort[i];
+        indexToSort[i] = indexToSort[j];
+        indexToSort[j] = k;
     }
     let randomSortedIndex = indexToSort;
     return randomSortedIndex;
@@ -198,16 +198,16 @@ function emptyClass() {
     for (let i = 0; i < emptyItems.length; i++) {
         emptyValues.push(parseInt(emptyItems[i].innerHTML));
     }
-    return emptyValues
+    return emptyValues;
 }
 
 function arrayComparison(numIntArray, randomIntArray) {
     
     for(let i = 0; i < randomIntArray.length; i++){
-        let val = randomIntArray[i]
-        let foundIndex = numIntArray.indexOf(val)
+        let val = randomIntArray[i];
+        let foundIndex = numIntArray.indexOf(val);
         if(foundIndex != -1){
-            numIntArray.splice(foundIndex, 1)
+            numIntArray.splice(foundIndex, 1);
         }
     }
     if (numIntArray.length > 0) {
@@ -226,7 +226,7 @@ function updateProgressBar() {
         if (idx < currentProgress) {
             square.classList.add('active');
         }
-    })
+    });
 }
 
 /**
