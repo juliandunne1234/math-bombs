@@ -16,7 +16,7 @@ var currentProgress = 1;
 
 /**
  * When the start button is selected
- * the 30 second countdown timer begins
+ * the countdown timer begins
  */
  function startCountdown() {
     interval = setInterval(countingDown, 1000);
@@ -28,6 +28,9 @@ var currentProgress = 1;
     submitButton.addEventListener('click', submitFinalCalc);
 }
 
+/**
+ * Countdown digital timer display
+ */
 function countingDown() {
     time--;
     if (time >= 10) {
@@ -47,7 +50,7 @@ function countingDown() {
  */
 function startMath() {
     document.getElementById('math-bomb-intro').innerHTML = `
-        <h2>Create the calculation...Any number can only be used once</h2>
+        <h2>Create the calculation...Each element value can only be used once</h2>
         <div id="math-calc-answer">
             <div id="calculated-number"></div>
         </div>
@@ -62,7 +65,7 @@ function startMath() {
         </div>
         <div id="math-calc-answer">
             <div id="equal-sign">=</div>
-            <input type="text" id="answer-box" placeholder="4 * ( 8 - 9 )">
+            <input type="text" id="answer-box">
         </div>
     `;
 
@@ -238,6 +241,10 @@ function bombExplodes() {
     `;
 }
 
+/**
+ * User has finished the game
+ * before the time elapses
+ */
 function gameComplete() {
     document.getElementById('math-bomb-intro').innerHTML = `
         <h2 id="game-over-message">You have finished the game...You must be some kind of Math genius!!!</h2>
