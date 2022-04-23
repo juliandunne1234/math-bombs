@@ -146,13 +146,13 @@ h1 {
 }
 
 #progress-bar {
-    background: rgb(188, 7, 7);
+    /* background: rgb(188, 7, 7); */
     position: absolute;
-    top: 50%;
-    left: 0;
+    /* top: 50%; */
+    /* left: 0; */
     /* height: 120px; */
-    width: 0%;
-    transition: .8s ease;
+    /* width: 0%; */
+    /* transition: .8s ease; */
 }
 
 /* Page layout once game starts changes and boxes appear with values */
@@ -172,7 +172,11 @@ h1 {
 }
 
 .square.active {
-    border-color: rgb(188, 7, 7);
+    border-color: #fff;
+    transform: scale(2);
+    transition: transform 0.8s;
+    color: #fff;
+    background-color: rgb(188, 7, 7);
 }
 
 #math-bomb-intro h2 {
