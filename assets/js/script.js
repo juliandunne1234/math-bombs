@@ -176,9 +176,18 @@ function submitFinalCalc() {
         }
         
     } else {
-        alert("Quick...get out of here!");
         clearInterval(interval);
-        bombExplodes();
+        Swal.fire({
+            timer: 10500,
+            html: `
+                <div id="pop-up-bomb">
+                    Quick...get out of here!
+                    <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay id="video-game-over">
+                        <h2>GAME....OVER</h2>
+                    </video>
+                </div>
+            `});
+        setTimeout(() => {window.location.reload()}, 10500)
     }
 }
 
@@ -229,9 +238,18 @@ function arrayComparison(numIntArray, randomIntArray) {
         }
     }
     if (numIntArray.length > 0) {
-        alert("Elements provided can only be used one...you are unlucky this time");
         clearInterval(interval);
-        bombExplodes();
+        Swal.fire({
+            timer: 10500,
+            html: `
+                <div id="pop-up-bomb">
+                    Only use values that are provided
+                    <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay id="video-game-over">
+                        <h2>GAME....OVER</h2>
+                    </video>
+                </div>
+            `});
+        setTimeout(() => {window.location.reload()}, 10500)
     }
 }
 

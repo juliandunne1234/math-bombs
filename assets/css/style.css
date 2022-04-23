@@ -227,14 +227,22 @@ h1 {
     margin: 15px;
     background: #fff;
     color: rgba(0, 0, 0, 0.9);
-    font-size: 4rem;
+    font-size: 2rem;
     text-align: center;
     font-weight: bold;
 }
 
-#video-game-over, #video-game-complete {
-    width: 100vw;
-    height: 100vh;
+#pop-up-bomb {
+    width: 460px;
+    height: 600px;
+    background: #fff;
+    font-size: 3rem;
+}
+
+#video-game-over, #video-game-complete { 
+    background-color: #fff;
+    width: 450px;
+    height: 450px;
     object-fit: cover;
 }
 
