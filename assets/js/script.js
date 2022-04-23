@@ -9,10 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
 /**
  * Global variables used as part of the project
  */
-var time = 59;
-var interval;
-var mathCount = 0;
-var currentProgress = 1;
+let time = 59;
+let interval;
+let mathCount = 0;
+let currentProgress = 1;
+let resetButton = document.getElementById('reset-timer');
+    resetButton.addEventListener('click',() => {window.location.reload()})
 
 /**
  * When the start button is selected
@@ -26,6 +28,14 @@ var currentProgress = 1;
     
     let submitButton = document.getElementById('submit-calc');
     submitButton.addEventListener('click', submitFinalCalc);
+
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            submitFinalCalc();
+        }
+    })
+
+    resetButton.addEventListener('click',() => {window.location.reload()});
 }
 
 /**
@@ -74,6 +84,7 @@ function startMath() {
     document.getElementById('start-box').innerHTML = `
         <button id="submit-calc">SUBMIT</button>
     `;
+    
 }
 
 /**
@@ -152,6 +163,13 @@ function submitFinalCalc() {
             document.getElementById('answer-box').innerHTML = "";
             let submitButton = document.getElementById('submit-calc');
             submitButton.addEventListener('click', submitFinalCalc);
+            
+            document.getElementById("answer-box").addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    submitFinalCalc();
+                }
+            })
+
         } else {
             clearInterval(interval);
             gameComplete();
