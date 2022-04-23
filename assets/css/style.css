@@ -239,6 +239,13 @@ h1 {
     font-size: 3rem;
 }
 
+#pop-up-help {
+    width: 450px;
+    height: 600px;
+    background: #fff;
+    font-size: 3rem;
+}
+
 #video-game-over, #video-game-complete { 
     background-color: #fff;
     width: 450px;

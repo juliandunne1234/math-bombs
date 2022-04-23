@@ -13,8 +13,12 @@ let time = 59;
 let interval;
 let mathCount = 0;
 let currentProgress = 1;
+
 let resetButton = document.getElementById('reset-timer');
     resetButton.addEventListener('click',() => {window.location.reload()})
+
+let helpButton = document.getElementById('game-help');
+    helpButton.addEventListener('click', gameInstruction);
 
 /**
  * When the start button is selected
@@ -31,6 +35,7 @@ let resetButton = document.getElementById('reset-timer');
 
     document.getElementById("answer-box").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
+            event.preventDefault();
             submitFinalCalc();
         }
     })
@@ -50,6 +55,7 @@ function countingDown() {
     } else {
         clearInterval(interval);
         bombExplodes();
+        setTimeout(() => {window.location.reload()}, 10500)
     } 
 }
 
@@ -176,18 +182,10 @@ function submitFinalCalc() {
         }
         
     } else {
+        
         clearInterval(interval);
-        Swal.fire({
-            timer: 10500,
-            html: `
-                <div id="pop-up-bomb">
-                    Quick...get out of here!
-                    <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay id="video-game-over">
-                        <h2>GAME....OVER</h2>
-                    </video>
-                </div>
-            `});
-        setTimeout(() => {window.location.reload()}, 10500)
+        bombExplodes();
+        setTimeout(() => {window.location.reload()}, 10500);
     }
 }
 
@@ -239,16 +237,7 @@ function arrayComparison(numIntArray, randomIntArray) {
     }
     if (numIntArray.length > 0) {
         clearInterval(interval);
-        Swal.fire({
-            timer: 10500,
-            html: `
-                <div id="pop-up-bomb">
-                    Only use values that are provided
-                    <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay id="video-game-over">
-                        <h2>GAME....OVER</h2>
-                    </video>
-                </div>
-            `});
+        bombExplodes();
         setTimeout(() => {window.location.reload()}, 10500)
     }
 }
@@ -266,16 +255,34 @@ function updateProgressBar() {
 }
 
 /**
+ * Help button to explain
+ * the rules of the game
+ */
+function gameInstruction() {
+    Swal.fire({
+        html: `
+            <div id="pop-up-help">
+                Create the calculation. Only use an element once. Different elements can contain the same number and can be used accordingly.
+            </div>
+        `});
+}
+
+/**
  * User has run out of time
  * without finishing the game
  */
-function bombExplodes() {
-    document.getElementById('container').innerHTML = `
-        <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay id="video-game-over">
-            <h2>GAME....OVER</h2>
-        </video>
-    `;
-}
+ function bombExplodes() {
+    Swal.fire({
+        timer: 10500,
+        html: `
+            <div id="pop-up-bomb">
+                Quick....get out of here!
+                <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay id="video-game-over">
+                    <h2>GAME....OVER</h2>
+                </video>
+            </div>
+    `});
+ }
 
 /**
  * User has finished the game
