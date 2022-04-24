@@ -66,7 +66,7 @@ function countingDown() {
  */
 function startMath() {
     document.getElementById('math-bomb-intro').innerHTML = `
-        <h2>Create the calculation...Each element value can only be used once</h2>
+        <h2>Create the calculation... Each element value can only be used once</h2>
         <div id="math-calc-answer">
             <div id="calculated-number"></div>
         </div>
@@ -182,7 +182,6 @@ function submitFinalCalc() {
         }
         
     } else {
-        
         clearInterval(interval);
         bombExplodes();
         setTimeout(() => {window.location.reload()}, 10500);
@@ -194,7 +193,7 @@ function calculatedValues() {
     let numStrArray = calcElements.replace(/[^0-9]/g, ", ").split(',');
     let numIntArray = strToInt(numStrArray);
     let randomIntArray = emptyClass();
-    arrayComparison(numIntArray, randomIntArray);
+    return arrayComparison(numIntArray, randomIntArray);
 }
 
 /** 
@@ -262,7 +261,9 @@ function gameInstruction() {
     Swal.fire({
         html: `
             <div id="pop-up-help">
-                Create the calculation. Only use an element once. Different elements can contain the same number and can be used accordingly.
+                <p>
+                    Use the element values provided once. The same number can appear more than once in a different box and can be used if required.
+                </p>
             </div>
         `});
 }
@@ -276,10 +277,11 @@ function gameInstruction() {
         timer: 10500,
         html: `
             <div id="pop-up-bomb">
-                Quick....get out of here!
-                <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay id="video-game-over">
-                    <h2>GAME....OVER</h2>
-                </video>
+                <p>
+                    Quick....get out of here!
+                    <video src="assets/videos/bomb-detonates.mp4" controls="" autoplay id="video-game-over">
+                    </video>
+                </p>
             </div>
     `});
  }
