@@ -360,6 +360,17 @@ h1 {
 
 /* larger to medium screens size from 1600px wide and down */
 @media screen and (max-width: 1600px) {
+    h1 {
+        margin-bottom: 32px;
+        font-size: 3.5rem;
+        letter-spacing: 3px;
+    }
+    
+    #math-bomb-intro p {
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+    
     #math-calc-answer {
         margin-top: 2.5vh; 
     }
@@ -398,17 +409,6 @@ h1 {
 
 /* larger to medium screens size from 1200px wide and down */
 @media screen and (max-width: 1200px) {
-    h1 {
-        margin-bottom: 32px;
-        font-size: 3.5rem;
-        letter-spacing: 3px;
-    }
-    
-    #math-bomb-intro p {
-        font-size: 2.5rem;
-        line-height: 3rem;
-    }
-    
     #timer-box {
         font-size: 3rem;
     }
