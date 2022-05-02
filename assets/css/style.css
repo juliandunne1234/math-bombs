@@ -50,7 +50,7 @@ h1 {
     font-weight: 800;
 }
 
-/* Digital countdown timer and START button display */
+/* Digital countdown timer and START/SUBMIT button display */
 #countdown-container {
     width: 100%;
     padding-top: 10vh;
@@ -94,6 +94,7 @@ h1 {
     font-weight: 700;
 }
 
+/* RESET and HELP buttons display */
 #reset-help-boxes {
     display: flex;
     margin: auto;
@@ -121,7 +122,7 @@ h1 {
     background: #fff;
 }
 
-/* Progress bar */
+/* Progress bar that increments after each question is answered*/
 #progress-container {
     color: #fff;
 }
@@ -190,6 +191,7 @@ h1 {
     margin-top: 5vh; 
 }
 
+/* Random integer values are populated by the game in the empty boxes */
 .empty {
     height: 150px;
     width: 150px;
