@@ -1,5 +1,8 @@
 <h1 align="center">Maths Bomb</h1>
-<p>A game where the player has to answer three maths question correctly before the countdown timer elapses and the maths bomb explodes. Created as part of the Code Institue Portfolio 2: Javascript Essentials Milestone Project.</p>
+<p>A game where the player has to answer three maths question correctly before the countdown timer elapses and the maths bomb explodes. Created as part of the Code Institue Portfolio 2: Javascript Essentials Milestone Project 
+
+Live link - [Maths Bomb](https://juliandunne1234.github.io/math-bombs/)
+</p>
 
 ***
 
@@ -107,11 +110,13 @@
 
 * CSS - no errors found when passing style.css content through the [Jigsaw validator](https://jigsaw.w3.org/css-validator/validator)
 
-* JSHINT - no errors and 39 warnings found when passing script.js file through [jshint](https://jshint.com/). Warnings do not impact running of the game and are limitec to the following:
+* JSHINT - no errors and 52 warnings found when passing script.js file through [jshint](https://jshint.com/). Warnings do not impact running of the game and are limitec to the following:
     * 	'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz)
-    * 	'template literal syntax' is only available in ES6 (use 'esversion: 6').
+    *   'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6')
+    * 	'template literal syntax' is only available in ES6 (use 'esversion: 6')
+    *   'eval can be hamrful' - see more on this in [Issues List](#Issues-List)
 
-* Accessibility - Website accessibility is a key part of the project criteria. Devtools Lighthouse was used to confirm the colors and fonts used in each page are easy to read and accessible.
+* Website accessibility is a key part of the project criteria. Devtools Lighthouse was used to confirm the colors and fonts used in each page are easy to read and accessible however the performance scores is low - see more on this in [Issues List](#Issues-List)
 
 <p align="center">
 
@@ -142,9 +147,9 @@
 ***
 
 ## Issues List
-* Open Issues:
-    * Setting relative and absolute positioning on each web page so that the full screen size is used by the page. Instead there is whitespace remaining at the bottom of the pages.
-<br><br>
+* 'eval can be hamrful' - warning generated as part of the JSHINT code review of the javascript file. When writing the code it was understood that using the eval method in javascript is not desireable. A reason for this is that the code can become corrupted by third parties. An example of this can be seen in the game where if the user inputs "alert('I can avoid the game rules')" a pop up window with the alert message displayed appears in the window. This obviously is not meant to be a feature of the game. The game will ultimately fail once this alert window is closed however it does show a bug in the code that was not possible to completely eliminate.
+* The Lighthouse report has given a performance score of 73. The low performance score is noticeable from the game load time. The report says the hero-image size is an issue however this had not been an issue in previous iterations of the game. It seems to have started when backgound white space was removed for the game window and max-width and media queries were modified.
+***
 * Resolved Issues:
     * Stopping the timer at 00.00 seconds
     * Maintaining the timer format 00.09 once the timer was below 10 seconds
@@ -165,4 +170,5 @@
 * All images and the video used in this project were found on the [pexels](https://www.pexels.com/) website
 * Fonts used were imported from [Google Fonts](https://fonts.google.com/)
 * Gym dumbell icon used throughout the website is taken from [Font Awesome](https://fontawesome.com/)
+* Pop up window displayed as part of the game is taken from [sweetalert2](https://sweetalert2.github.io/)
 ***

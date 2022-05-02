@@ -13,7 +13,7 @@ let currentProgress = 1;
 
 // select the reset button to reload the game
 let resetButton = document.getElementById('reset-timer');
-    resetButton.addEventListener('click',() => {window.location.reload()})
+    resetButton.addEventListener('click',() => {window.location.reload();});
 
 // select the help button to for the game rules
 let helpButton = document.getElementById('game-help');
@@ -36,9 +36,9 @@ function startCountdown() {
             event.preventDefault();
             submitFinalCalc();
         }
-    })
+    });
 
-    resetButton.addEventListener('click',() => {window.location.reload()});
+    resetButton.addEventListener('click',() => {window.location.reload();});
 }
 
 // Digital timer displays the time remaining
@@ -51,7 +51,7 @@ function countingDown() {
     } else {
         clearInterval(interval);
         bombExplodes();
-        setTimeout(() => {window.location.reload()}, 10500)
+        setTimeout(() => {window.location.reload();}, 10500);
     } 
 }
 
@@ -83,8 +83,7 @@ function startMath() {
     // Submit button replaces the Start button
     document.getElementById('start-box').innerHTML = `
         <button id="submit-calc">SUBMIT</button>
-    `;
-    
+    `;  
 }
 
 /**
@@ -178,8 +177,7 @@ function submitFinalCalc() {
                 if (event.key === "Enter") {
                     submitFinalCalc();
                 }
-            })
-
+            });
         } else {
             clearInterval(interval);
             gameComplete();
@@ -188,7 +186,7 @@ function submitFinalCalc() {
     } else {
         clearInterval(interval);
         bombExplodes();
-        setTimeout(() => {window.location.reload()}, 10500);
+        setTimeout(() => {window.location.reload();}, 10500);
     }
 }
 
@@ -249,7 +247,7 @@ function arrayComparison(numIntArray, randomIntArray) {
     if (numIntArray.length > 0) {
         clearInterval(interval);
         bombExplodes();
-        setTimeout(() => {window.location.reload()}, 10500)
+        setTimeout(() => {window.location.reload();}, 10500);
     }
 }
 
